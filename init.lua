@@ -1,0 +1,1 @@
+require("mnat.init")
