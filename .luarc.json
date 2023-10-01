@@ -1,0 +1,30 @@
+{
+    "workspace.library": [
+        "/home/mnat/.local/share/nvim/lazy/neodev.nvim/types/nightly",
+        "/usr/share/nvim/runtime/lua",
+        "/home/mnat/.local/share/nvim/lazy/mason.nvim/lua",
+        "/home/mnat/.local/share/nvim/lazy/LuaSnip/lua",
+        "/home/mnat/.local/share/nvim/lazy/nvim-cmp/lua",
+        "/home/mnat/.local/share/nvim/lazy/gruvbox.nvim/lua",
+        "/home/mnat/.local/share/nvim/lazy/lspkind.nvim/lua",
+        "/home/mnat/.local/share/nvim/lazy/cmp-cmdline/lua",
+        "/home/mnat/.local/share/nvim/lazy/cmp-nvim-lsp/lua",
+        "/home/mnat/.local/share/nvim/lazy/fidget.nvim/lua",
+        "/home/mnat/.local/share/nvim/lazy/cmp-buffer/lua",
+        "/home/mnat/.local/share/nvim/lazy/telescope.nvim/lua",
+        "/home/mnat/.local/share/nvim/lazy/cmp_luasnip/lua",
+        "/home/mnat/.local/share/nvim/lazy/nvim-web-devicons/lua",
+        "/home/mnat/.local/share/nvim/lazy/cmp-nvim-lua/lua",
+        "/home/mnat/.local/share/nvim/lazy/lazy.nvim/lua",
+        "/home/mnat/.local/share/nvim/lazy/nvim-lspconfig/lua",
+        "/home/mnat/.local/share/nvim/lazy/neodev.nvim/lua",
+        "/home/mnat/.local/share/nvim/lazy/mason-lspconfig.nvim/lua",
+        "/home/mnat/.local/share/nvim/lazy/cmp-path/lua",
+        "/home/mnat/.local/share/nvim/lazy/bufferline.nvim/lua",
+        "/home/mnat/.local/share/nvim/lazy/nvim-tree.lua/lua",
+        "/home/mnat/.local/share/nvim/lazy/plenary.nvim/lua",
+        "/home/mnat/.local/share/nvim/lazy/bufdelete.nvim/lua",
+        "/home/mnat/.config/nvim/lua",
+        "${3rd}/luv/library"
+    ]
+}
