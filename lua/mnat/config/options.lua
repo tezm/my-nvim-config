@@ -1,14 +1,14 @@
 -- Add any options here
 -- List of options: https://neovim.io/doc/user/quickref.html#Q_op
 -- or :help options
---------------------------------------------------------------------------------------------------------------------------------------------------------------- 
-local opt = vim.opt                         -- vim option alias 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+local opt = vim.opt                         -- vim option alias
 
-opt.backup = false                          -- keep backup file after overwriting a file 
-opt.clipboard:append("unnamedplus")         -- use the clipboard as the unnamed register
-opt.cmdheight = 2                           -- number of lines to use for the command-line 
+opt.backup = false                          -- keep backup file after overwriting a file
+opt.clipboard = "unnamedplus"               -- use the clipboard as the unnamed register
+opt.cmdheight = 1                           -- number of lines to use for the command-line
 opt.completeopt = { "menuone", "noselect" } -- A comma-separated list of options for Insert mode completion
-opt.conceallevel = 0                        -- whether concealable text is shown or hidden 
+opt.conceallevel = 0                        -- whether concealable text is shown or hidden
 opt.cursorline = true                       -- highlight the screen line of the cursor
 opt.expandtab = true                        -- use spaces when <Tab> is inserted
 opt.fileencoding = "utf-8"                  -- the encoding written to a file
@@ -42,4 +42,17 @@ opt.whichwrap:append "<,>,[,],h,l"
 opt.wrap = false                            -- long lines wrap and continue on the next line
 opt.writebackup = false                     -- make a backup before overwriting a file
 
-vim.wo.fillchars='eob: '                    -- empty lines below the end of a buffer
+vim.wo.fillchars = "eob: "                  -- empty lines below the end of a buffer
+vim.g.python3_host_prog = "/usr/bin/python3"
+--vim.g.clipboard = {
+--  name = "WslClipboard",
+--  copy = {
+--    ["+"] = "clip.exe",
+--    ["*"] = "clip.exe",
+--  },
+--  paste = {
+--    ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r",""))',
+--    ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r",""))',
+--  },
+--  cache_enabled = true,
+--}
