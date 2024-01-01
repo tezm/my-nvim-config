@@ -10,6 +10,8 @@ return {
         lua = { "stylua" },
         ocaml = { "ocamlformat" },
         python = { "isort", "black" },
+        rust = { "rustfmt" },
+        go = { "gofumpt" }
       },
       format_on_save = {
         lsp_fallback = true,

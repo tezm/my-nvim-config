@@ -3,10 +3,11 @@ return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
-    "hrsh7th/cmp-buffer",           -- source for text in buffer
-    "hrsh7th/cmp-path",             -- source for file system paths
-    "hrsh7th/cmp-cmdline",          -- cmdline completions
+    "hrsh7th/cmp-buffer",  -- source for text in buffer
+    "hrsh7th/cmp-path",    -- source for file system paths
+    "hrsh7th/cmp-cmdline", -- cmdline completions
     "hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
     "L3MON4D3/LuaSnip",             -- snippet engine
     "saadparwaiz1/cmp_luasnip",     -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
@@ -48,6 +49,7 @@ return {
         { name = "path" },    -- file system paths
         --        { name = "cmdline" },
         { name = "nvim_lua" },
+        { name = "nvim_lsp_signature_help" },
       }),
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {

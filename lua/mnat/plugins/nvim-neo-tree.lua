@@ -37,8 +37,11 @@ return {
     vim.fn.sign_define("DiagnosticSignHint",
       { text = "󰌵", texthl = "DiagnosticSignHint" })
 
-    vim.keymap.set("n", "<leader>ee", "<cmd>Neotree focus left filesystem toggle reveal_force_cwd<CR>",
+    vim.keymap.set("n", "<leader>ee", "<cmd>Neotree focus left filesystem reveal_force_cwd<CR>",
       { silent = true, desc = "[E]xpand [e]xplorer" })
+
+    vim.keymap.set("n", "\\", "<cmd>:Neotree focus toggle left filesystem reveal<cr>",
+      { silent = true, desc = "[\\] Toggle explorer" })
 
     require("neo-tree").setup({
       close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
@@ -218,7 +221,7 @@ return {
       nesting_rules = {},
       filesystem = {
         filtered_items = {
-          visible = false, -- when true, they will just be displayed differently than normal items
+          visible = true, -- when true, they will just be displayed differently than normal items
           hide_dotfiles = true,
           hide_gitignored = true,
           hide_hidden = true, -- only works on Windows for hidden files/directories
@@ -330,7 +333,5 @@ return {
         }
       }
     })
-
-    vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
   end,
 }
