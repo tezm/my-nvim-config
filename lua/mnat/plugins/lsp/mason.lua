@@ -26,7 +26,16 @@ return {
       ensure_installed = {
         "lua_ls",
         "pyright",
-        "rust_analyzer"
+        "rust_analyzer",
+        "bashls",
+        "clangd",
+        "dockerls",
+        "docker_compose_language_service",
+        "gopls",
+        "html",
+        "marksman",
+        "ocamllsp",
+        "zls",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed

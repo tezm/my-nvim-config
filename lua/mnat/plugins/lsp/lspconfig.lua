@@ -6,14 +6,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     "hrsh7th/cmp-nvim-lsp",
     { "folke/neodev.nvim", opts = {} },
-    {
-      "j-hui/fidget.nvim",
-      tag = "legacy",
-      event = "LspAttach",
-      opts = {
-        -- options
-      },
-    },
+    { "j-hui/fidget.nvim", opts = {} },
   },
   config = function()
     -- import lspconfig plugin
@@ -98,8 +91,6 @@ return {
         },
         telemetry = { enable = false },
       },
-      pyright = {},
-      rust_analyzer = {},
       gopls = {
         analyses = {
           unusedparams = true,
@@ -107,9 +98,6 @@ return {
         staticcheck = true,
         gofumpt = true,
       },
-      ocamllsp = {
-
-      }
     }
 
     require("mason-lspconfig").setup_handlers {
