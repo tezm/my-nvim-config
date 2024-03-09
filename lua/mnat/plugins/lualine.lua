@@ -9,43 +9,43 @@ return {
 
     -- Color for highlights
     local colors = {
-      yellow = '#ECBE7B',
-      cyan = '#008080',
-      darkblue = '#081633',
-      green = '#98be65',
-      orange = '#FF8800',
-      violet = '#a9a1e1',
-      magenta = '#c678dd',
-      blue = '#51afef',
-      red = '#ec5f67'
+      yellow = "#ECBE7B",
+      cyan = "#008080",
+      darkblue = "#081633",
+      green = "#98be65",
+      orange = "#FF8800",
+      violet = "#a9a1e1",
+      magenta = "#c678dd",
+      blue = "#51afef",
+      red = "#ec5f67",
     }
 
     local config = {
       options = {
         icons_enabled = true,
-        theme = 'gruvbox',
-        component_separators = { '', '' },
-        section_separators = { '', '' },
-        disabled_filetypes = {}
+        theme = "everforest",
+        component_separators = { "", "" },
+        section_separators = { "", "" },
+        disabled_filetypes = {},
       },
       sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'filename' },
+        lualine_a = { "mode" },
+        lualine_b = { "filename" },
         lualine_c = {},
         lualine_x = {},
-        lualine_y = { 'encoding', 'fileformat', 'filetype' },
-        lualine_z = { 'branch' },
+        lualine_y = { "encoding", "fileformat", "filetype" },
+        lualine_z = { "branch" },
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
+        lualine_c = { "filename" },
+        lualine_x = { "location" },
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
       },
       tabline = {},
-      extensions = {}
+      extensions = {},
     }
 
     -- Inserts a component in lualine_c at left section
@@ -59,29 +59,29 @@ return {
       table.insert(config.sections.lualine_x, component)
     end
 
-    ins_left {
-      'lsp_progress',
-      display_components = { 'lsp_client_name', 'spinner', { 'title', 'percentage', 'message' } },
+    ins_left({
+      "lsp_progress",
+      display_components = { "lsp_client_name", "spinner", { "title", "percentage", "message" } },
       colors = {
-        percentage      = colors.cyan,
-        title           = colors.cyan,
-        message         = colors.cyan,
-        spinner         = colors.cyan,
+        percentage = colors.cyan,
+        title = colors.cyan,
+        message = colors.cyan,
+        spinner = colors.cyan,
         lsp_client_name = colors.magenta,
-        use             = true,
+        use = true,
       },
       separators = {
-        component = ' ',
-        progress = ' | ',
-        percentage = { pre = '', post = '%% ' },
-        title = { pre = '', post = ': ' },
-        lsp_client_name = { pre = '[', post = ']' },
-        spinner = { pre = '', post = '' },
-        message = { commenced = 'In Progress', completed = 'Completed', pre = '(', post = ')' },
+        component = " ",
+        progress = " | ",
+        percentage = { pre = "", post = "%% " },
+        title = { pre = "", post = ": " },
+        lsp_client_name = { pre = "[", post = "]" },
+        spinner = { pre = "", post = "" },
+        message = { commenced = "In Progress", completed = "Completed", pre = "(", post = ")" },
       },
       timer = { progress_enddelay = 500, spinner = 1000, lsp_client_name_enddelay = 1000 },
-      spinner_symbols = { '🌑 ', '🌒 ', '🌓 ', '🌔 ', '🌕 ', '🌖 ', '🌗 ', '🌘 ' },
-    }
+      spinner_symbols = { "🌑 ", "🌒 ", "🌓 ", "🌔 ", "🌕 ", "🌖 ", "🌗 ", "🌘 " },
+    })
 
     lualine.setup({ config })
   end,
