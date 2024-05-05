@@ -2,31 +2,31 @@ return {
   "akinsho/bufferline.nvim",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
-    "famiu/bufdelete.nvim"
+    "famiu/bufdelete.nvim",
   },
   version = "*",
   opts = {
     options = {
       -- mode = "buffers", -- set to "tabs" to only show tabpages instead
       -- style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
-      themable = true,                     -- | false, -- allows highlight groups to be overriden i.e. sets highlights as default
-      numbers = "none",                    -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-      close_command = "Bdelete! %d",       -- can be a string | function, see "Mouse actions"
+      themable = true, -- | false, -- allows highlight groups to be overriden i.e. sets highlights as default
+      numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+      close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
       right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-      left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
-      middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
+      left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
+      middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
       -- NOTE: this plugin is designed with this icon in mind,
       -- and so changing this is NOT recommended, this is intended
       -- as an escape hatch for people who cannot bear it for whatever reason
       indicator = {
-        icon = '▎', -- this should be omitted if indicator style is not 'icon'
-        style = 'icon', -- | 'underline' | 'none',
+        icon = "▎", -- this should be omitted if indicator style is not 'icon'
+        style = "icon", -- | 'underline' | 'none',
       },
       -- buffer_close_icon = "",
-      buffer_close_icon = '',
+      buffer_close_icon = "",
       modified_icon = "●",
       -- close_icon = "",
-      close_icon = '',
+      close_icon = "",
       left_trunc_marker = "",
       right_trunc_marker = "",
       --- name_formatter can be used to change the buffer's label in the bufferline.
@@ -41,8 +41,8 @@ return {
       --   tabnr (tabs only)   | int        | the "handle" of the tab, can be converted to its ordinal number using: `vim.api.nvim_tabpage_get_number(buf.tabnr)`
       -- end,
       max_name_length = 30,
-      max_prefix_length = 30,   -- prefix used when a buffer is de-duplicated
-      truncate_names = true,    -- whether or not tab names should be truncated
+      max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
+      truncate_names = true, -- whether or not tab names should be truncated
       tab_size = 19,
       diagnostics = "nvim_lsp", -- | false | "coc",
       diagnostics_update_in_insert = false,
@@ -50,6 +50,7 @@ return {
       --   return "("..count..")"
       -- end,
       -- NOTE: this will be called a lot so don't do any heavy processing here
+      --
       -- custom_filter = function(buf_number)
       --   -- filter out filetypes you don't want to see
       --   if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
@@ -69,9 +70,9 @@ return {
         {
           filetype = "neo-tree",
           text = "File Explorer", -- | function ,
-          text_align = "center",  -- |"left" | "right"
-          separator = true
-        }
+          text_align = "center", -- |"left" | "right"
+          separator = true,
+        },
       },
       show_buffer_icons = true,
       show_buffer_close_icons = true,
@@ -90,14 +91,13 @@ return {
       hover = {
         enabled = false,
         delay = 200,
-        reveal = { 'close' }
+        reveal = { "close" },
       },
       -- sort_by = 'insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
       -- add custom logic
       -- return buffer_a.modified > buffer_b.modified
       -- end
     },
-    highlights = {
-    },
+    highlights = {},
   },
 }

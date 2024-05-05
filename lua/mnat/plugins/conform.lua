@@ -11,7 +11,7 @@ return {
         ocaml = { "ocamlformat" },
         python = { "isort", "black" },
         rust = { "rustfmt" },
-        go = { "gofumpt" }
+        go = { "gofumpt" },
       },
       format_on_save = {
         lsp_fallback = true,
@@ -24,6 +24,6 @@ return {
         lsp_fallback = true,
         timeout_ms = 1000,
       })
-    end, { desc = "Format file or range (in visual mode)" })
+    end, { desc = "[c]ode [f]ormat" })
   end,
 }
