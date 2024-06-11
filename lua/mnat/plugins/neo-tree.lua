@@ -7,19 +7,19 @@ return {
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     "MunifTanjim/nui.nvim",
     {
-      's1n7ax/nvim-window-picker',
-      version = '2.*',
+      "s1n7ax/nvim-window-picker",
+      version = "2.*",
       config = function()
-        require 'window-picker'.setup({
+        require("window-picker").setup({
           filter_rules = {
             include_current_win = false,
             autoselect_one = true,
             -- filter using buffer options
             bo = {
               -- if the file type is one of following, the window will be ignored
-              filetype = { 'neo-tree', "neo-tree-popup", "notify" },
+              filetype = { "neo-tree", "neo-tree-popup", "notify" },
               -- if the buffer type is one of following, the window will be ignored
-              buftype = { 'terminal', "quickfix" },
+              buftype = { "terminal", "quickfix" },
             },
           },
         })
@@ -28,30 +28,23 @@ return {
   },
   config = function()
     -- If you want icons for diagnostic errors, you'll need to define them somewhere:
-    vim.fn.sign_define("DiagnosticSignError",
-      { text = " ", texthl = "DiagnosticSignError" })
-    vim.fn.sign_define("DiagnosticSignWarn",
-      { text = " ", texthl = "DiagnosticSignWarn" })
-    vim.fn.sign_define("DiagnosticSignInfo",
-      { text = " ", texthl = "DiagnosticSignInfo" })
-    vim.fn.sign_define("DiagnosticSignHint",
-      { text = "󰌵", texthl = "DiagnosticSignHint" })
+    vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+    vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+    vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+    vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
-    vim.keymap.set("n", "<leader>ee", "<cmd>Neotree focus left filesystem reveal_force_cwd<CR>",
-      { silent = true, desc = "[E]xpand [e]xplorer" })
+    vim.keymap.set("n", "<leader>ee", "<cmd>Neotree focus left filesystem reveal_force_cwd<CR>", { silent = true, desc = "[E]xpand [e]xplorer" })
 
-    vim.keymap.set("n", "\\", "<cmd>:Neotree focus toggle left filesystem reveal<cr>",
-      { silent = true, desc = "[\\] Toggle explorer" })
+    vim.keymap.set("n", "\\", "<cmd>:Neotree focus toggle left filesystem reveal<cr>", { silent = true, desc = "[\\] Toggle explorer" })
 
     require("neo-tree").setup({
       close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
       popup_border_style = "rounded",
       enable_git_status = true,
       enable_diagnostics = true,
-      enable_normal_mode_for_inputs = false,                             -- Enable normal mode for input dialogs.
       open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-      sort_case_insensitive = false,                                     -- used when sorting files and directories in the tree
-      sort_function = nil,                                               -- use a custom function for sorting files and directories in the tree
+      sort_case_insensitive = false, -- used when sorting files and directories in the tree
+      sort_function = nil, -- use a custom function for sorting files and directories in the tree
       -- sort_function = function (a,b)
       --       if a.type == b.type then
       --           return a.path > b.path
@@ -68,20 +61,20 @@ return {
           event = "neo_tree_buffer_enter",
           handler = function()
             -- This effectively hides the cursor
-            vim.cmd 'highlight! Cursor blend=100'
-          end
+            vim.cmd("highlight! Cursor blend=100")
+          end,
         },
         {
           event = "neo_tree_buffer_leave",
           handler = function()
             -- Make this whatever your current Cursor highlight group is.
-            vim.cmd 'highlight! Cursor guibg=#5f87af blend=0'
-          end
-        }
+            vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
+          end,
+        },
       },
       default_component_configs = {
         container = {
-          enable_character_fade = true
+          enable_character_fade = true,
         },
         indent = {
           indent_size = 2,
@@ -104,7 +97,7 @@ return {
           -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
           -- then these will never be used.
           default = "*",
-          highlight = "NeoTreeFileIcon"
+          highlight = "NeoTreeFileIcon",
         },
         modified = {
           symbol = "[+]",
@@ -118,17 +111,17 @@ return {
         git_status = {
           symbols = {
             -- Change type
-            added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-            modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-            deleted   = "✖", -- this can only be used in the git_status source
-            renamed   = "󰁕", -- this can only be used in the git_status source
+            added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+            modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+            deleted = "✖", -- this can only be used in the git_status source
+            renamed = "󰁕", -- this can only be used in the git_status source
             -- Status type
             untracked = "",
-            ignored   = "",
-            unstaged  = "󰄱",
-            staged    = "",
-            conflict  = "",
-          }
+            ignored = "",
+            unstaged = "󰄱",
+            staged = "",
+            conflict = "",
+          },
         },
         -- If you don't want to use these columns, you can set `enabled = false` for each of them individually
         file_size = {
@@ -190,8 +183,8 @@ return {
             -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
             -- some commands may take optional config options, see `:h neo-tree-mappings` for details
             config = {
-              show_path = "none" -- "none", "relative", "absolute"
-            }
+              show_path = "none", -- "none", "relative", "absolute"
+            },
           },
           ["A"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
           ["d"] = "delete",
@@ -213,10 +206,16 @@ return {
           ["<"] = "prev_source",
           [">"] = "next_source",
           ["i"] = "show_file_details",
-          ['e'] = function() vim.api.nvim_exec("Neotree focus filesystem left", true) end,
-          ['b'] = function() vim.api.nvim_exec("Neotree focus buffers left", true) end,
-          ['g'] = function() vim.api.nvim_exec("Neotree focus git_status left", true) end,
-        }
+          ["e"] = function()
+            vim.api.nvim_exec("Neotree focus filesystem left", true)
+          end,
+          ["b"] = function()
+            vim.api.nvim_exec("Neotree focus buffers left", true)
+          end,
+          ["g"] = function()
+            vim.api.nvim_exec("Neotree focus git_status left", true)
+          end,
+        },
       },
       nesting_rules = {},
       filesystem = {
@@ -244,11 +243,11 @@ return {
           },
         },
         follow_current_file = {
-          enabled = false,                      -- This will find and focus the file in the active buffer every time
+          enabled = false, -- This will find and focus the file in the active buffer every time
           --               -- the current file is changed while the tree is open.
-          leave_dirs_open = false,              -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+          leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
-        group_empty_dirs = false,               -- when true, empty folders will be grouped together
+        group_empty_dirs = false, -- when true, empty folders will be grouped together
         hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
         -- in whatever position is specified in window.position
         -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -286,15 +285,15 @@ return {
           },
         },
 
-        commands = {} -- Add a custom command or override a global one using the same function name
+        commands = {}, -- Add a custom command or override a global one using the same function name
       },
       buffers = {
         follow_current_file = {
-          enabled = true,          -- This will find and focus the file in the active buffer every time
+          enabled = true, -- This will find and focus the file in the active buffer every time
           --              -- the current file is changed while the tree is open.
           leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
-        group_empty_dirs = true,   -- when true, empty folders will be grouped together
+        group_empty_dirs = true, -- when true, empty folders will be grouped together
         show_unloaded = true,
         window = {
           mappings = {
@@ -308,30 +307,30 @@ return {
             ["on"] = { "order_by_name", nowait = false },
             ["os"] = { "order_by_size", nowait = false },
             ["ot"] = { "order_by_type", nowait = false },
-          }
+          },
         },
       },
       git_status = {
         window = {
           position = "float",
           mappings = {
-            ["A"]  = "git_add_all",
+            ["A"] = "git_add_all",
             ["gu"] = "git_unstage_file",
             ["ga"] = "git_add_file",
             ["gr"] = "git_revert_file",
             ["gc"] = "git_commit",
             ["gp"] = "git_push",
             ["gg"] = "git_commit_and_push",
-            ["o"]  = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+            ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
             ["oc"] = { "order_by_created", nowait = false },
             ["od"] = { "order_by_diagnostics", nowait = false },
             ["om"] = { "order_by_modified", nowait = false },
             ["on"] = { "order_by_name", nowait = false },
             ["os"] = { "order_by_size", nowait = false },
             ["ot"] = { "order_by_type", nowait = false },
-          }
-        }
-      }
+          },
+        },
+      },
     })
   end,
 }

@@ -8,6 +8,14 @@ return {
       "hrsh7th/cmp-cmdline", -- cmdline completions
       "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-nvim-lsp-signature-help",
+      {
+         "MattiasMTS/cmp-dbee",
+         dependencies = {
+            { "kndndrj/nvim-dbee" },
+         },
+         ft = "sql", -- optional but good to have
+         opts = {}, -- needed
+      },
       "saadparwaiz1/cmp_luasnip", -- for autocompletion
       {
          "L3MON4D3/LuaSnip",
@@ -84,6 +92,7 @@ return {
          -- sources for autocompletion
          sources = cmp.config.sources({
             { name = "nvim_lsp" },
+            { name = "cmp-dbee" },
             { name = "luasnip" }, -- snippets
             { name = "buffer" }, -- text within current buffer
             { name = "path" }, -- file system paths
