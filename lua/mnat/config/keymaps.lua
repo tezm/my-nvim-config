@@ -40,6 +40,8 @@ keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_opts)
 
 -- Remap for closing current buffer
 keymap("n", "<leader>bd", ":Bdelete<CR>", { noremap = true, silent = true, desc = "[b]uffer [d]elete" })
+keymap("n", "]b", ":bnext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
+keymap("n", "[b", ":bNext<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
 -- Lua
 keymap("n", "<leader>xx", function()
   require("trouble").toggle()
