@@ -118,7 +118,6 @@ return {
     end
 
     local servers = {
-      pyright = {},
       rust_analyzer = {
         imports = {
           granularity = {
