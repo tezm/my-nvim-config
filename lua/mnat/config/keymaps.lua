@@ -16,10 +16,10 @@ vim.b.maplocalleader = " "
 -- Remap for dealing with word wrap
 
 -- Basic movement keybinds, these make navigating splits easy for me
-keymap("n", "<c-j>", "<c-w><c-j>")
-keymap("n", "<c-k>", "<c-w><c-k>")
-keymap("n", "<c-l>", "<c-w><c-l>")
-keymap("n", "<c-h>", "<c-w><c-h>")
+-- keymap("n", "<c-j>", "<c-w><c-j>")
+-- keymap("n", "<c-k>", "<c-w><c-k>")
+-- keymap("n", "<c-l>", "<c-w><c-l>")
+-- keymap("n", "<c-h>", "<c-w><c-h>")
 
 keymap("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
 keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
