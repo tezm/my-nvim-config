@@ -9,7 +9,8 @@ require("mnat.config.keymaps")
 require("mnat.config.autocmds")
 require("mnat.config.terminal")
 
-vim.cmd("colorscheme gruvbox")
+-- vim.cmd("colorscheme gruvbox")
 -- vim.cmd([[colorscheme everforest]])
+vim.cmd([[colorscheme dracula]])
 
-vim.cmd([[TransparentEnable]])
+-- vim.cmd([[TransparentEnable]])
