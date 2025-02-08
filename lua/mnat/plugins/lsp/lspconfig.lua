@@ -15,7 +15,7 @@ return {
     local lspconfig = require("lspconfig")
 
     -- import cmp-nvim-lsp plugin
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    local _cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local keymap = vim.keymap.set -- for conciseness
     local opts = { noremap = true, silent = true }
@@ -118,25 +118,13 @@ return {
     end
 
     local servers = {
+      bacon_ls = {
+        enabled = true,
+      },
       rust_analyzer = {
-        imports = {
-          granularity = {
-            group = "module",
-          },
-          prefix = "self",
-        },
-        cargo = {
-          buildScripts = {
-            enable = true,
-          },
-        },
-        procMacro = {
-          enable = true,
-        },
-        checkOnSave = {
-          command = "clippy",
-        },
-        inlayHints = { enable = true },
+        enabled = false,
+        diagnostics = false,
+        checkOnSave = false,
       },
       lua_ls = {
         -- make the language server recognize "vim" global
@@ -181,6 +169,8 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       "stylua", -- Used to format lua code
+      "bacon",
+      "bacon-ls",
     })
     require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -195,6 +185,22 @@ return {
           require("lspconfig")[server_name].setup(server)
         end,
       },
+      -- list of servers for mason to install
+      ensure_installed = {
+        "lua_ls",
+        "rust_analyzer",
+        "bashls",
+        "clangd",
+        "dockerls",
+        "docker_compose_language_service",
+        "gopls",
+        "html",
+        "marksman",
+        "ocamllsp",
+        "zls",
+      },
+      -- auto-install configured servers (with lspconfig)
+      automatic_installation = true, -- not the same as ensure_installed
     })
   end,
 }

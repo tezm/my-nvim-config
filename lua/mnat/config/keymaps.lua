@@ -21,8 +21,9 @@ vim.b.maplocalleader = " "
 -- keymap("n", "<c-l>", "<c-w><c-l>")
 -- keymap("n", "<c-h>", "<c-w><c-h>")
 
-keymap("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
-keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
+-- keymap("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
+-- keymap("v", "<leader>x", "<cmd>lua<CR>", { desc = "Execute the current selection" })
+-- keymap("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
 
 -- Toggle hlsearch if it's on, otherwise just do "enter"
 keymap("n", "<CR>", function()

@@ -3,8 +3,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPre", "BufNewFile" },
     build = ":TSUpdate",
-    dependencies = {
-    },
+    dependencies = {},
     config = function()
       -- import nvim-treesitter plugin
       local treesitter = require("nvim-treesitter.configs")
@@ -18,10 +17,12 @@ return {
           "go",
           "python",
           "rust",
+          "ron",
           "vimdoc",
           "ocaml",
           "json",
           "yaml",
+          "toml",
           "markdown",
           "markdown_inline",
           "bash",
@@ -41,10 +42,10 @@ return {
         incremental_selection = {
           enable = true,
           keymaps = {
-            init_selection = "gnn", -- set to `false` to disable one of the mappings
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
+            init_selection = "tnn", -- set to `false` to disable one of the mappings
+            node_incremental = "trn",
+            scope_incremental = "trc",
+            node_decremental = "trm",
           },
         },
       })
