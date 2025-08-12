@@ -10,7 +10,11 @@ require("mnat.config.autocmds")
 require("mnat.config.terminal")
 
 -- vim.cmd("colorscheme gruvbox")
--- vim.cmd([[colorscheme everforest]])
-vim.cmd([[colorscheme dracula]])
+vim.cmd([[colorscheme everforest]])
+-- vim.cmd([[colorscheme dracula]])
+-- vim.cmd("colorscheme kanagawa-wave")
+-- vim.cmd("colorscheme kanagawa-dragon")
+-- vim.cmd("colorscheme kanagawa-lotus")
+-- vim.cmd("colorscheme monokai-pro")
 
 -- vim.cmd([[TransparentEnable]])

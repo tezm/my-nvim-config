@@ -39,28 +39,9 @@ keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_opts)
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_opts)
 
 -- Remap for closing current buffer
-keymap("n", "<leader>bd", ":Bdelete<CR>", { noremap = true, silent = true, desc = "[b]uffer [d]elete" })
-keymap("n", "]b", ":bnext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
-keymap("n", "[b", ":bNext<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
--- Lua
-keymap("n", "<leader>xx", function()
-  require("trouble").toggle()
-end)
-keymap("n", "<leader>xw", function()
-  require("trouble").toggle("workspace_diagnostics")
-end)
-keymap("n", "<leader>xd", function()
-  require("trouble").toggle("document_diagnostics")
-end)
-keymap("n", "<leader>xq", function()
-  require("trouble").toggle("quickfix")
-end)
-keymap("n", "<leader>xl", function()
-  require("trouble").toggle("loclist")
-end)
-keymap("n", "gR", function()
-  require("trouble").toggle("lsp_references")
-end)
+-- keymap("n", "<leader>bd", ":Bdelete<CR>", { noremap = true, silent = true, desc = "[b]uffer [d]elete" })
+keymap("n", "]b", ":bnext<CR>", { noremap = true, silent = true, desc = "Next [b]uffer" })
+keymap("n", "[b", ":bNext<CR>", { noremap = true, silent = true, desc = "Previous [b]uffer" })
 
 -- These mappings control the size of splits (height/width)
 keymap("n", "<M-,>", "<c-w>5<")
@@ -84,9 +65,9 @@ keymap("n", "<M-k>", function()
   end
 end)
 
-keymap("n", "<space>tt", function()
-  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
-end)
+-- keymap("n", "<space>tt", function()
+--   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 })
+-- end)
 
 -- exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. otherwise, you normally need to press <c-\><c-n>, which

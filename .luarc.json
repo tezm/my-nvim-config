@@ -26,5 +26,8 @@
         "/home/mnat/.local/share/nvim/lazy/bufdelete.nvim/lua",
         "/home/mnat/.config/nvim/lua",
         "${3rd}/luv/library"
+    ],
+    "diagnostics.disable": [
+        "undefined-doc-name"
     ]
 }

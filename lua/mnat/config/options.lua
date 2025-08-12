@@ -7,9 +7,10 @@ local opt = vim.opt -- vim option alias
 opt.backup = false -- keep backup file after overwriting a file
 opt.clipboard:append("unnamedplus")
 opt.clipboard:append("unnamed") -- use the clipboard as the unnamed register
-opt.cmdheight = 1 -- number of lines to use for the command-line
+opt.cmdheight = 0 -- number of lines to use for the command-line
 opt.completeopt = { "menuone", "noselect" } -- A comma-separated list of options for Insert mode completion
-opt.conceallevel = 0 -- whether concealable text is shown or hidden
+opt.conceallevel = 2 -- whether concealable text is shown or hidden
+opt.concealcursor = "nc"
 opt.cursorline = true -- highlight the screen line of the cursor
 opt.expandtab = true -- use spaces when <Tab> is inserted
 opt.fileencoding = "utf-8" -- the encoding written to a file

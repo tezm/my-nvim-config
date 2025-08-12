@@ -1,26 +1,24 @@
---[[
--- Setup initial configuration,
--- 
--- Primarily just download and execute lazy.nvim
---]]
-
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.uv.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
 
 -- Add lazy to the `runtimepath`, this allows us to `require` it.
 ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "mnat.plugins" }, { import = "mnat.plugins.lsp" }, { import = "mnat.plugins.dap" } }, {
+require("lazy").setup({
   root = vim.fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed
   defaults = {
     lazy = false, -- should plugins be lazy-loaded?
@@ -31,7 +29,11 @@ require("lazy").setup({ { import = "mnat.plugins" }, { import = "mnat.plugins.ls
     -- version = "*", -- enable this to try installing the latest stable versions of plugins
   },
   -- leave nil when passing the spec as the first argument to setup()
-  spec = nil, ---@type LazySpec
+  spec = {
+    { import = "mnat.plugins" },
+    { import = "mnat.plugins.lsp" },
+    { import = "mnat.plugins.dap" },
+  }, ---@type LazySpec
   lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
   concurrency = jit.os:find("Windows") and (vim.loop.available_parallelism() * 2) or nil, --@type number limit the maximum amount of concurrent tasks
   git = {
