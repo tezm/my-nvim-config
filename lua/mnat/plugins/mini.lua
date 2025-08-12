@@ -9,6 +9,21 @@ return { -- Collection of various small independent plugins/modules
     --  - ci'  - [C]hange [I]nside [']quote
     require("mini.ai").setup({ n_lines = 500 })
 
+    -- Align text interactively
+    --
+    --  s                 -  enter split Lua pattern.
+    --  j                 -  choose justification side from available ones ("left", "center", "right", "none").
+    --  m                 -  enter merge delimiter.
+    --  f                 -  enter filter Lua expression to configure which parts will be affected (like "align only first column").
+    --  i                 -  ignore some commonly unwanted split matches.
+    --  p                 -  pair neighboring parts so they be aligned together.
+    --  t                 -  trim whitespace from parts.
+    --  <BS> (backspace)  -  delete some last pre-step.
+    require("mini.align").setup()
+
+    -- Animate common Neovim actions
+    require("mini.animate").setup()
+
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
     --
     -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
